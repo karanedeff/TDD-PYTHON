@@ -1,16 +1,41 @@
 from selenium import webdriver
-import time
+import unittest
 
-browser = webdriver.Chrome()
-browser.get("http://127.0.0.1:8000")
-time.sleep(5)
-print(browser.title)
 
-# from selenium import webdriver
-#
-# from webdriver_manager.chrome import ChromeDriverManager
-# from selenium.webdriver.chrome.service import Service as ChromeService
-#
-# service = ChromeService(executable_path=ChromeDriverManager().install())
-#
-# driver = webdriver.Chrome(service=service)
+class NewVisitorTest(unittest.TestCase):
+
+    def setUp(self):
+        self.browser = webdriver.Chrome()
+
+    def tearDown(self) -> None:
+        self.browser.quit()
+
+    def test_title(self):
+        self.browser.get("http://127.0.0.1:8000")
+        title = self.browser.title
+        self.assertIn("success",self.browser.title)
+
+    def test_can_start_list_and_retrieve_it_later(self):
+        self.browser.get("http://127.0.0.1:8000")
+
+        self.assertIn("To-Do", self.browser.title)
+        self.fail("Finish the test!")
+
+if __name__ == "__main__":
+    unittest.main(warnings="ignore")
+    # invite to add
+
+    # type into box
+
+    # page update on enter, new item
+
+    # add another
+
+    # update again
+
+    # unique url, save state, help
+
+    # return to url
+
+    # end
+
