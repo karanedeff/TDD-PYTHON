@@ -4,4 +4,4 @@ from django.db import models
 class Item(models.Model):
     text = models.TextField(default="")
     # TODO:
-    #   adjust model so that items are associated iwth different lists
+    #   adjust model so that items are associated with different lists
