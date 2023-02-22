@@ -12,5 +12,4 @@ urlpatterns = [
 ]
 # TODO:
 #   add unique URLs for each lists
-#   add URL for creating new list via POST
 #   add URLs for adding a new item to an existing list via POST
